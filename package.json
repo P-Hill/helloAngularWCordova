@@ -12,7 +12,7 @@
     "*** All the following Scripts are based on ***": "https://dev.to/jspizziri/angular-cordova-1nej",
     "clean:browser": "rmdir /s /q dist && mkdir dist",
     "clean:phone": "rmdir /s /q cordova\\www && mkdir cordova\\www && type nul > cordova\\www\\.keep",
-    "clean": " npm run clean:dist && npm run clean:phone",
+    "clean": " npm run clean:browwer && npm run clean:phone",
 
     "clean:cordovaDirs": "cd cordova && rmdir /s /q platforms plugins node_modules && mkdir platforms plugins node_modules && cd ..",
     "cordova:prepare": "npm run clean:cordovaDirs && npm ci && cd cordova && cordova prepare && cd ..",

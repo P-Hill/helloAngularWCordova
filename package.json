@@ -4,10 +4,21 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href=/",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+
+    "*** All the following Scripts are based on ***": "https://dev.to/jspizziri/angular-cordova-1nej",
+    "clean:browser": "rmdir /s /q dist && mkdir dist",
+    "clean:phone": "rmdir /s /q cordova\\www\\* && mkdir cordova\\www && type nul > cordova\\www\\.keep",
+    "clean": " npm run clean:dist && npm run clean:phone",
+
+    "clean:cordovaDirs": "cd cordova && rmdir /s /q platforms plugins node_modules && mkdir platforms plugins node_modules && cd ..",
+    "cordova:prepare": "npm run clean:cordovaDirs && npm ci && cd cordova && cordova prepare && cd ..",
+    "build:cordova": "ng build --base-href=. --output-path=cordova\\www",
+    "cordova:build:android": "npm run build:cordova && cd cordova && cordova build android && cd ..",
+    "cordova:run:android": "npm run cordova:build:android && cd cordova && cordova run android && cd .."
   },
   "private": true,
   "dependencies": {
